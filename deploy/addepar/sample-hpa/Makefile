@@ -10,8 +10,8 @@ monitor:
 	kubectl create -n default -f service-monitor.yaml
 
 hpa:
-	kubectl delete -f sample-app.hpa.yaml
-	kubectl create -f sample-app.hpa.yaml
+	kubectl delete -n default -f sample-app.hpa.yaml
+	kubectl create -n default -f sample-app.hpa.yaml
 
 test:
 	kubectl get --raw "/apis/custom.metrics.k8s.io/v1beta1/namespaces/default/pods/*/http_requests?selector=app%3Dsample-app"
